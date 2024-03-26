@@ -1,6 +1,6 @@
-import React, { Suspense, useEffect, useRef, useState } from 'react';
-import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
-import { OrbitControls, Stars, ScrollControls, Html, } from "@react-three/drei";
+import { Suspense, useState } from 'react';
+import { Canvas, useLoader, } from '@react-three/fiber';
+import { OrbitControls, ScrollControls, Html, } from "@react-three/drei";
 import './index.css'
 import * as THREE from 'three';
 import Earth from './CelestialBodies/Earth';

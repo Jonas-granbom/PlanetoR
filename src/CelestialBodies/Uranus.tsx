@@ -1,8 +1,8 @@
 //uranus 206.9
 
 
-import React, { useRef, useState } from 'react';
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { useRef } from 'react';
+import { useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 
 import uranusMap from '../../assets/2k_uranus.jpg';

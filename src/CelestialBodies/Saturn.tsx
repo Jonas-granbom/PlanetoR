@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -11,37 +11,31 @@ export function Saturn({ position, onUpdatePosition }) {
 
     const groupRef = useRef<THREE.Group>(null);
 
-
-
     useFrame(({ clock }) => {
         if (groupRef.current) {
             const elapsedTime = clock.getElapsedTime();
-            // Orbital motion around the Sun
             const orbitalAngle = elapsedTime * 0.00005;
             const orbitalDistance = 103.1;
             const x = Math.sin(orbitalAngle) * orbitalDistance;
             const z = Math.cos(orbitalAngle) * orbitalDistance;
             groupRef.current.position.set(x, 0, z);
 
-            // Simulate day/night cycle by rotating Saturn around its y-axis
             groupRef.current.children.forEach((child, index) => {
-                if (index === 0) { // Assuming the first child is Saturn itself
+                if (index === 0) {
                     child.rotation.y += 0.005;
                 } else {
-                    // Optional: Animate rings individually
                     child.rotation.z += -0.0015 + index * -0.001;
                 }
             });
 
-            // Update the position for external use if necessary
+
             if (typeof onUpdatePosition === 'function') {
                 onUpdatePosition(groupRef.current.position.clone());
             }
         }
     });
 
-    // Convert tilt angle to radians
-    const tiltAngleRadians = 26.7 * (Math.PI / 180); // Saturn's axial tilt
+    const tiltAngleRadians = 26.7 * (Math.PI / 180); 
 
     return (
         <>

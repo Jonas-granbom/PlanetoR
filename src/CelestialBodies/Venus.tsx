@@ -1,10 +1,9 @@
 
-import React, { useRef, useState } from 'react';
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { useRef } from 'react';
+import { useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 
 import venusMap from '../../assets/8k_venus_surface.jpg';
-import Orbit from './Orbit';
 
 
 
